@@ -1,0 +1,22 @@
+
+main {
+    zoom: 200%;
+    text-align: center;
+    background-color: rgb(220,220,220,255);
+}
+
+.input {
+    margin: 1rem;
+    margin-left: 0rem;
+    margin-right: 0.5rem;
+}
+
+.output {
+    margin: 1rem;
+    margin-left: 0.5rem;
+    margin-right: 0rem;
+}
+
+.convert {
+    margin-bottom: 1rem;
+}
