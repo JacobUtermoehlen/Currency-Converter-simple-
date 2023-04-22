@@ -101,8 +101,8 @@ function swapCurrency() {
     FromStorageCurrency = currencyFrom.toUpperCase();
     ToStorageCurrency = currencyTo.toLowerCase();
 
-    document.getElementById("currencyFrom").value = ToStorage;  //Das Gleiche wie: 
-    document.getElementById("currencyTo").value = FromStorage;  //      |
+    document.getElementById("currencyFrom").value = ToStorageCurrency;  //Das Gleiche wie: 
+    document.getElementById("currencyTo").value = FromStorageCurrency;  //      |
                                                                 //      V
     /*if(ToStorage == "EUR"){
         document.getElementById("currencyFrom").value = "eur";
