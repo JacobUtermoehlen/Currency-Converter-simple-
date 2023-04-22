@@ -11,39 +11,79 @@
 <body>
 
     <main>
+        <div>
+        <article class="grid">
+            <section class="currency" style="                                                        
+        margin-top: 2rem;
+        border-top: 3px solid rgb(180, 180, 180);">
+            <h1>Currencies</h1>
+            <select id="currencyFrom">
+                <option value="eur">Euro</option>
+                <option value="usd">USD</option>
+                <option value="try">Lira</option>
+                <option value="gbp">Pfund-Sterling</option>
+                <option value="jpy">Jpn. Yen</option>
+            </select>
+            <input class="input" type="number" id="inputCurrency">
 
-        <select id="currencyFrom">
-            <option value="eur">Euro</option>
-            <option value="usd">USD</option>
-            <option value="try">Lira</option>
-            <option value="gbp">Pfund-Sterling</option>
-            <option value="jpy">Jpn. Yen</option>
-        </select>
-        <input class="input" type="number" id="input">
+            <button onclick="swapCurrency()">&#8644;</button>
 
-        <button onclick="swap()">&#8644;</button>
+            <input class="output" id="outputCurrency" placeholder="Output" disabled>
 
-        <input class="output" id="output" placeholder="Output" disabled>
+            <select class="selection" id="currencyTo">
+                <option value="EUR">to Euro</option>
+                <option value="USD">to USD</option>
+                <option value="TRY">to Lira</option>
+                <option value="GBP">to Pfund-Sterling</option>
+                <option value="JPY">to Jpn. Yen</option>
+            </select>
+            <div>
+                <button class="convert" onclick="convertCurrency()">Convert</button>
+            </div>
 
-        <select class="selection" id="currencyTo">
-            <option value="EUR">to Euro</option>
-            <option value="USD">to USD</option>
-            <option value="TRY">to Lira</option>
-            <option value="GBP">to Pfund-Sterling</option>
-            <option value="JPY">to Jpn. Yen</option>
-        </select>
-        <button class="convert" onclick="convert()">Convert</button>
+            <p style="text-align: right;">
+                Data from: 14.04.2023
+            </p>
+            </section>
 
+            <section class="measurementUnits" style="
+        margin-top: 2rem;
+        border-top: 3px solid rgb(180, 180, 180);">
+            <h1>Measurement units (metric)</h1>
+            <select id="measurementUnitsFrom">
+                <option value="km">Kilometer</option>
+                <option value="m">Meter</option>
+                <option value="cm">Centimeter</option>
+                <option value="mm">Millimeter</option>
+                <option value="mim">Mikrometer</option>
+            </select>
+            <input class="input" type="number" id="inputMeasurementUnits">
 
+            <button onclick="swapMeasurementUnits()">&#8644;</button>
+
+            <input class="output" id="outputMeasurementUnits" placeholder="Output" disabled>
+
+            <select class="selection" id="measurementUnitsTo">
+                <option value="KM">to Kilometer</option>
+                <option value="M">to Meter</option>
+                <option value="CM">to Centimeter</option>
+                <option value="MM">to Millimeter</option>
+                <option value="MIM">to Mikrometer</option>
+            </select>
+            <div>
+                <button class="convert" onclick="convertMeasurementUnits()">Convert</button>
+            </div>
+            </section>
+        </article>
+        </div>
     </main>
 
     <footer>
-        <input id="FromStorage" placeholder="FromStorage" hidden="true">
-        <input id="ToStorage" placeholder="ToStorage" hidden="true">
+        <input id="FromStorageCurrency" placeholder="FromStorageCurrency" hidden="true">
+        <input id="ToStorageCurrency" placeholder="ToStorageCurrency" hidden="true">
 
-        <p style="text-align: right;">
-            Data from: 14.04.2023
-        </p>
+        <input id="FromStorageMeasurementUnits" placeholder="FromStorageMeasurementUnits" hidden="true">
+        <input id="ToStorageMeasurementUnits" placeholder="ToStorageMeasurementUnits" hidden="true">
     </footer>
 
 </body>

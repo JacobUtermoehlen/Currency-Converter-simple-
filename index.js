@@ -1,10 +1,10 @@
 
-function convert(){
-    var input = document.getElementById("input").value;
+function convertCurrency(){
+    var input = document.getElementById("inputCurrency").value;
     var currencyTo = document.getElementById("currencyTo").value;
     var currencyFrom = document.getElementById("currencyFrom").value;
     var currencyOptionsLength = document.getElementById("currencyTo").length;
-    var  output = document.getElementById("output");
+    var output = document.getElementById("outputCurrency");
 
 
     if(currencyFrom == "eur"){
@@ -91,15 +91,15 @@ function convert(){
     output.value = newCurrency.toFixed(2);
 }
 
-function swap() {
+function swapCurrency() {
     var currencyFrom = document.getElementById("currencyFrom").value;
     var currencyTo = document.getElementById("currencyTo").value;
 
-    var FromStorage = document.getElementById("FromStorage").value;
-    var ToStorage = document.getElementById("ToStorage").value;
+    var FromStorageCurrency = document.getElementById("FromStorageCurrency").value;
+    var ToStorageCurrency = document.getElementById("ToStorageCurrency").value;
 
-    FromStorage = currencyFrom.toUpperCase();
-    ToStorage = currencyTo.toLowerCase();
+    FromStorageCurrency = currencyFrom.toUpperCase();
+    ToStorageCurrency = currencyTo.toLowerCase();
 
     document.getElementById("currencyFrom").value = ToStorage;  //Das Gleiche wie: 
     document.getElementById("currencyTo").value = FromStorage;  //      |
@@ -128,5 +128,146 @@ function swap() {
         document.getElementById("currencyTo").value = "JPY";
     }*/
 
-    convert()
+    convertCurrency()
+}
+
+
+
+
+
+
+
+
+function convertMeasurementUnits(){
+    var input = document.getElementById("inputMeasurementUnits").value;
+    var measurementUnitsTo = document.getElementById("measurementUnitsTo").value;
+    var measurementUnitsFrom = document.getElementById("measurementUnitsFrom").value;
+    var MeasurementUnitsOptionsLength = document.getElementById("measurementUnitsTo").length;
+    var output = document.getElementById("outputMeasurementUnits");
+
+
+    if(measurementUnitsFrom == "km"){
+        if(measurementUnitsTo == "KM"){
+            measurementUnitsTo = 1
+        }else if(measurementUnitsTo == "M"){
+            measurementUnitsTo = 1000
+        }else if(measurementUnitsTo == "CM"){
+            measurementUnitsTo = 100000
+        }else if(measurementUnitsTo == "MM"){
+            measurementUnitsTo = 1000000
+        }else if(measurementUnitsTo == "MIM"){
+            measurementUnitsTo =  1000000000
+        }
+    }else if(measurementUnitsFrom == "m"){
+        if(measurementUnitsTo == "KM"){
+            measurementUnitsTo = 0.001
+        }else if(measurementUnitsTo == "M"){
+            measurementUnitsTo = 1
+        }else if(measurementUnitsTo == "CM"){
+            measurementUnitsTo = 100
+        }else if(measurementUnitsTo == "MM"){
+            measurementUnitsTo = 1000
+        }else if(measurementUnitsTo == "MIM"){
+            measurementUnitsTo = 1000000
+        }
+    }else if(measurementUnitsFrom == "cm"){
+        if(measurementUnitsTo == "KM"){
+            measurementUnitsTo = 0.00001
+        }else if(measurementUnitsTo == "M"){
+            measurementUnitsTo = 0.01
+        }else if(measurementUnitsTo == "CM"){
+            measurementUnitsTo = 1
+        }else if(measurementUnitsTo == "MM"){
+            measurementUnitsTo = 10
+        }else if(measurementUnitsTo == "MIM"){
+            measurementUnitsTo = 10000
+        }
+    }else if(measurementUnitsFrom == "mm"){
+        if(measurementUnitsTo == "KM"){
+            measurementUnitsTo = 0.000001
+        }else if(measurementUnitsTo == "M"){
+            measurementUnitsTo = 0.001
+        }else if(measurementUnitsTo == "CM"){
+            measurementUnitsTo = 0.1
+        }else if(measurementUnitsTo == "MM"){
+            measurementUnitsTo = 1
+        }else if(measurementUnitsTo == "MIM"){
+            measurementUnitsTo = 1000
+        }
+    }else if(measurementUnitsFrom == "mim"){
+        if(measurementUnitsTo == "KM"){
+            measurementUnitsTo =  0.000000001
+        }else if(measurementUnitsTo == "M"){
+            currencyTo = 0.000001
+        }else if(measurementUnitsTo == "CM"){
+            measurementUnitsTo = 0.0001
+        }else if(measurementUnitsTo == "MM"){
+            measurementUnitsTo = 0.001
+        }else if(measurementUnitsTo == "MIM"){
+            measurementUnitsTo = 1
+        }
+    }    
+
+
+    var newCurrencyTag = ""    
+    switch(currencyTo){
+
+        case "USD":
+            newCurrencyTag = "test";
+            break;
+        case "TRY":
+            newCurrencyTag = "₺";
+            break;
+        case "GBP":
+            newCurrencyTag = "£";
+            break;
+        case "EUR":
+            newCurrencyTag = "€";
+            break;          
+    }
+
+    var newMeasurementUnits = input * measurementUnitsTo;
+    output.value = newMeasurementUnits;
+}
+
+function swapMeasurementUnits() {
+    var measurementUnitsFrom = document.getElementById("measurementUnitsFrom").value;
+    var measurementUnitsTo = document.getElementById("measurementUnitsTo").value;
+
+    var FromStorageMeasurementUnits = document.getElementById("FromStorageMeasurementUnits").value;
+    var ToStorageMeasurementUnits = document.getElementById("ToStorageMeasurementUnits").value;
+
+    FromStorageMeasurementUnits = measurementUnitsFrom.toUpperCase();
+    ToStorageMeasurementUnits = measurementUnitsTo.toLowerCase();
+
+
+
+    document.getElementById("measurementUnitsFrom").value = ToStorageMeasurementUnits;  //Das Gleiche wie: 
+    document.getElementById("measurementUnitsTo").value = FromStorageMeasurementUnits;  //      |
+                                                                //      V
+    /*if(ToStorage == "EUR"){
+        document.getElementById("currencyFrom").value = "eur";
+    }else if(ToStorage == "USD"){
+        document.getElementById("currencyFrom").value = "usd";  
+    }else if(ToStorage == "TRY"){
+        document.getElementById("currencyFrom").value = "try";      <---
+    }else if(ToStorage == "GBP"){
+        document.getElementById("currencyFrom").value = "gbp";
+    }else if(ToStorage == "JPY"){
+        document.getElementById("currencyFrom").value = "jpy";
+    }
+
+    if(FromStorage == "eur"){
+        document.getElementById("currencyTo").value = "EUR";
+    }else if(FromStorage == "usd"){
+        document.getElementById("currencyTo").value = "USD";
+    }else if(FromStorage == "try"){
+        document.getElementById("currencyTo").value = "TRY";        <---
+    }else if(FromStorage == "gbp"){
+        document.getElementById("currencyTo").value = "GBP";
+    }else if(FromStorage == "jpy"){
+        document.getElementById("currencyTo").value = "JPY";
+    }*/
+
+    convertMeasurementUnits()
 }
